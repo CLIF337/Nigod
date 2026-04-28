@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторные работы по JS (Вар 3)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrapper">
+    <h1>Задания по JavaScript (Вариант 3)</h1>
+
+    <!-- Задача 1: Дата/время -->
+    <button class="accordion">Задача №1: Дата и время</button>
+    <div class="panel">
+        <div id="clock"></div>
+    </div>
+
+    <!-- Задача 2: Календарь -->
+    <button class="accordion">Задача №2: Календарь</button>
+    <div class="panel">
+        <p>Интерактивный календарь:</p>
+        <div class="calendar-controls">
+            <button onclick="prevMonth()" class="year-btn">◀ Предыдущий месяц</button>
+            <span id="current-month-year" class="current-month"></span>
+            <button onclick="nextMonth()" class="year-btn">Следующий месяц ▶</button>
+            <button onclick="goToToday()" class="today-btn">Сегодня</button>
+        </div>
+        <div id="calendar-container"></div>
+        <div id="selected-date" class="selected-date"></div>
+    </div>
+
+    <!-- Задача 3: DOM-дерево (только списки) -->
+    <button class="accordion">Задача №3: DOM-дерево (Только списки)</button>
+    <div class="panel">
+        <p>Найти элементы: <b>Только списки (&lt;ul&gt; и &lt;ol&gt;)</b>.</p>
+        <button id="count-btn" class="simple-btn">Найти и посчитать списки</button>
+        <p id="dom-result" style="font-weight:bold; color:blue;"></p>
+        <hr>
+        <p><i>Тестовые списки для проверки:</i></p>
+        <ol><li>Первый пункт</li><li>Второй пункт</li><li>Третий пункт</li></ol>
+        <ul><li>Элемент 1</li><li>Элемент 2</li><li>Элемент 3</li></ul>
+        <ul><li>Главный пункт<ul><li>Подпункт 1</li><li>Подпункт 2</li></ul></li><li>Другой пункт</li></ul>
+        <ol><li>Шаг первый</li><li>Шаг второй</li></ol>
+        <p>Это обычный текст, не список</p>
+        <div>Это div, не список</div>
+    </div>
+
+    <!-- Задача 4: Текст в блоках (30 мс, последовательно) -->
+    <button class="accordion">Задача №4: Изменение объекта (текст в блоках, 30мс)</button>
+    <div class="panel">
+        <p>Каждые 30 мс текст отображается последовательно в одном из 5 блоков:</p>
+        <div id="task4-blocks" class="task4-container">
+            <div class="task4-block">Блок 1</div>
+            <div class="task4-block">Блок 2</div>
+            <div class="task4-block">Блок 3</div>
+            <div class="task4-block">Блок 4</div>
+            <div class="task4-block">Блок 5</div>
+        </div>
+        <button id="task4-stop-btn" class="simple-btn">Остановить</button>
+        <button id="task4-start-btn" class="simple-btn">Запустить</button>
+    </div>
+
+    <!-- Задача 5: Ссылки в DIV, удаление сверху -->
+    <button class="accordion">Задача №5: Динамические ссылки в div (удаление первого)</button>
+    <div class="panel">
+        <p>Добавление ссылки в div. Удаляется всегда <b>самый верхний</b> элемент.</p>
+        <button id="add-link-btn" class="simple-btn">🔗 Добавить ссылку</button>
+        <button id="remove-top-btn" class="simple-btn">❌ Удалить верхний</button>
+        <div id="dynamic-links" class="task5-container"></div>
+    </div>
+
+    <!-- Задача 6: Выход мыши с ячейки -->
+    <button class="accordion">Задача №6: Выход мыши с ячейки → копировать текст вниз</button>
+    <div class="panel">
+        <p>Наведите курсор на любую ячейку со словом, затем выйдите за её пределы — текст этой ячейки появится внизу.</p>
+        <div class="task6-cells">
+            <div class="task6-cell">РАЗ</div>
+            <div class="task6-cell">ДВА</div>
+            <div class="task6-cell">ТРИ</div>
+            <div class="task6-cell">ЧЕТЫРЕ</div>
+            <div class="task6-cell">ПЯТЬ</div>
+        </div>
+        <div id="task6-display" class="task6-display">Выйдите мышью с любой ячейки</div>
+    </div>
+
+    <!-- Задача 7: Меню сладостей -->
+    <button class="accordion">Задача №7: Меню (сладости)</button>
+    <div class="panel">
+        <p>Кликните на сладость — она исчезнет из меню. Когда все сладости исчезнут, появится сообщение.</p>
+        <button id="resetSweetsBtn" class="simple-btn">Сбросить меню</button>
+        <ul id="sweetsList" class="sweets-list">
+            <li>Пирожное</li>
+            <li>Конфета</li>
+            <li>Шоколад</li>
+            <li>Мороженое</li>
+            <li>Пончик</li>
+        </ul>
+        <div id="sweetsMessage" class="sweets-message">Сладости закончились</div>
+    </div>
+
+    <!-- Задача 8: Прозрачность картинки -->
+<button class="accordion">Задача №8: Прозрачность картинки при наведении</button>
+<div class="panel">
+    <p>Наведите курсор на картинку — она станет прозрачной, и будет виден текст за ней.</p>
+    <div class="image-overlay-container">
+        <div class="behind-text">ВОЗЬМИ ТРУБКУ!/ ЧЕЧНЯ НА СВЯЗИ</div>
+        <img
+            id="hoverImage"
+            src="./images/1.jpg"
+            alt="Тестовая картинка"
+            class="hover-fade-img"
+        >
+    </div>
+</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
