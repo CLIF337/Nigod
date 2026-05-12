@@ -1,0 +1,560 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.wrapper {
+    width: 80%;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+/* Стили гармошки */
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+
+.panel {
+    padding: 15px;
+    display: none;
+    background-color: white;
+    border: 1px solid #eee;
+}
+
+/* --- ЗАДАЧА 1 --- */
+#clock {
+    text-align: right;
+    font-family: "Courier New", monospace;
+    font-size: 1.2rem;
+    color: #000;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+/* --- ЗАДАЧА 2: Календарь --- */
+.calendar-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.year-btn, .today-btn {
+    padding: 8px 15px;
+    background-color: #478ac9;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.year-btn:hover, .today-btn:hover {
+    background-color: #387cbd;
+}
+
+.today-btn {
+    background-color: #4caf50;
+}
+
+.today-btn:hover {
+    background-color: #45a049;
+}
+
+.current-month {
+    font-size: 1.2rem;
+    font-weight: bold;
+    min-width: 150px;
+    text-align: center;
+    color: #333;
+}
+
+.calendar-table {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.calendar-table th {
+    background-color: #f5f5f5;
+    padding: 12px;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.calendar-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #eee;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.calendar-table td:hover:not(.empty-cell) {
+    background-color: #e3f2fd;
+    transform: scale(1.05);
+}
+
+.calendar-table td.weekend {
+    color: red;
+    font-weight: bold;
+}
+
+.calendar-table td.today {
+    background-color: #ffeb3b;
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+.calendar-table td.selected {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+}
+
+.calendar-table td.empty-cell {
+    background-color: #f9f9f9;
+    cursor: default;
+}
+
+.calendar-table td.empty-cell:hover {
+    background-color: #f9f9f9;
+    transform: none;
+}
+
+.selected-date {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e8f4ff;
+    border-radius: 5px;
+    transition: opacity 0.3s ease;
+}
+
+/* --- ЗАДАЧА 3 --- */
+.highlight-list {
+    background-color: #ffeb3b;
+    border: 2px solid #ff9800;
+    padding: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
+}
+
+/* --- ЗАДАЧА 4 --- */
+.task4-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.task4-block {
+    width: 100px;
+    height: 100px;
+    background: #f5f5f5;
+    border: 2px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+    transition: all 0.1s ease;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.task4-block.active-text {
+    background: #ffeb3b;
+    border-color: #ff9800;
+    transform: scale(1.02);
+}
+
+/* --- ЗАДАЧА 5 --- */
+.simple-btn {
+    padding: 8px 15px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.simple-btn:hover {
+    background-color: #45a049;
+}
+
+.task5-container {
+    border: 1px solid #ddd;
+    padding: 10px;
+    min-height: 120px;
+    background: #fefefe;
+    margin-top: 15px;
+}
+
+.link-wrapper {
+    border: 1px solid #ccc;
+    margin: 8px 0;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    background: #fafafa;
+    border-radius: 6px;
+}
+
+.link-wrapper a {
+    color: #1e88e5;
+    text-decoration: none;
+    flex-grow: 1;
+}
+
+.link-wrapper a:hover {
+    text-decoration: underline;
+}
+
+/* --- ЗАДАЧА 6 --- */
+.task6-cells {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.task6-cell {
+    width: 100px;
+    height: 100px;
+    background: #e3f2fd;
+    border: 2px solid #1e88e5;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0d47a1;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.task6-cell:hover {
+    transform: scale(1.05);
+    background: #bbdef5;
+    border-color: #0d47a1;
+}
+
+.task6-display {
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px dashed #4caf50;
+    text-align: center;
+    font-size: 2rem;
+    background: #f9f9f9;
+    border-radius: 12px;
+    transition: all 0.2s;
+    font-weight: bold;
+}
+/* --- ЗАДАЧА 7 --- */
+.sweets-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    max-width: 400px;
+}
+
+.sweets-list li {
+    background: #fff9e6;
+    border: 1px solid #f0c674;
+    border-radius: 6px;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.sweets-list li:hover {
+    background: #ffe6b3;
+    transform: translateX(5px);
+}
+
+.sweet-fade-out {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.sweet-hidden {
+    display: none;
+}
+
+.sweets-message {
+    display: none;
+    background: #4caf50;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-top: 10px;
+    max-width: 400px;
+}
+
+/* --- ЗАДАЧА 8 --- */
+.image-overlay-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #333;
+}
+
+.behind-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 1;
+    font-weight: bold;
+}
+
+.hover-fade-img {
+    position: relative;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+    display: block;
+    width: 300px;
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
+.fade-out {
+    opacity: 0.15;
+}
+
+/* ==================== ЗАДАЧИ 9-10 ==================== */
+
+.modern-form-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.modern-form {
+    flex: 1;
+    min-width: 320px;
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+
+.input-group input:focus {
+    border-color: #4caf50;
+    outline: none;
+    box-shadow: 0 0 8px rgba(76,175,80,0.3);
+}
+
+.input-success {
+    border-color: #2e7d32 !important;
+    background: #f1fff1;
+}
+
+.input-error {
+    border-color: #d32f2f !important;
+    background: #fff3f3;
+}
+
+.error-text {
+    color: #d32f2f;
+    font-size: 13px;
+    display: block;
+    margin-top: 5px;
+    min-height: 18px;
+}
+
+.modern-btn {
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.modern-btn:hover {
+    background: #1b5e20;
+}
+
+.info-box {
+    width: 340px;
+    background: #f8fbff;
+    border: 1px solid #cddff7;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.info-box h3 {
+    margin-top: 0;
+}
+
+.info-box ul {
+    padding-left: 20px;
+}
+
+.error-box {
+    background: #fff8f8;
+    border-color: #f0c0c0;
+}
+/* ========== ЗАДАЧА 11: BLOCK BLAST ========== */
+#blockblast-game {
+    max-width: 550px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.game-stats {
+    display: flex;
+    justify-content: space-between;
+    background: #2c3e50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.blast-board {
+    background-color: #1e2a36;
+    border-collapse: collapse;
+    margin: 0 auto;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+.blast-board td {
+    width: 48px;
+    height: 48px;
+    border: 1px solid #3a4c5c;
+    background-color: #2c3e44;
+    text-align: center;
+    transition: 0.1s linear;
+    cursor: pointer;
+}
+.blast-board td.filled {
+    background-color: #f39c12;
+    box-shadow: inset 0 0 0 2px #e67e22;
+}
+.blast-board td.hover-highlight {
+    background-color: #f1c40f80;
+    border: 2px solid #f1c40f;
+}
+.blocks-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 15px 0;
+}
+.shape-card {
+    background: #ecf0f1;
+    border-radius: 12px;
+    padding: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 2px solid transparent;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.shape-card.selected-shape {
+    background: #ffeaa7;
+    border-color: #e67e22;
+    transform: scale(1.02);
+}
+.shape-card:hover {
+    background: #dfe6e9;
+    transform: scale(1.02);
+}
+.shape-grid {
+    display: inline-grid;
+    background: #bdc3c7;
+    gap: 2px;
+    padding: 4px;
+}
+.shape-cell {
+    width: 28px;
+    height: 28px;
+    background-color: #2c3e50;
+    border-radius: 4px;
+}
+.shape-cell.active-block {
+    background-color: #e67e22;
+}
+.selected-info {
+    margin: 10px 0;
+    font-weight: bold;
+    color: #2c3e50;
+}
+.game-controls {
+    margin-top: 15px;
+}
+.game-message {
+    margin-top: 15px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 8px;
+    background: #ecf0f1;
+    color: #c0392b;
+}
