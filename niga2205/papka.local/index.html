@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Товар по артикулу</title>
+    <style>
+        .card { border: 1px solid #ccc; padding: 15px; margin-top: 20px; max-width: 400px; }
+        .card img { max-width: 100%; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Задание 2: Ajax + goods.php</h1>
+    <label>Артикул (1 или 2): </label>
+    <input type="number" id="art" min="1" max="2" value="1">
+    <button id="loadBtn">Получить товар</button>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('loadBtn').addEventListener('click', function() {
+            const art = document.getElementById('art').value;
+            if (art !== '1' && art !== '2') {
+                document.getElementById('result').innerHTML = '<p class="error">Введите 1 или 2</p>';
+                return;
+            }
+
+            fetch(`goods.php?art=${art}`)
+                .then(response => {
+                    if (!response.ok) throw new Error('Ошибка сервера');
+                    return response.json();
+                })
+                .then(data => {
+                    // Выводим поля name, weight, cost, img
+                    let html = `<div class="card">`;
+                    if (data.img) html += `<img src="${data.img}" alt="${data.name}">`;
+                    html += `<h3>${data.name}</h3>`;
+                    html += `<p>Вес: ${data.weight}</p>`;
+                    html += `<p>Стоимость: ${data.cost} руб.</p>`;
+                    html += `</div>`;
+                    document.getElementById('result').innerHTML = html;
+                })
+                .catch(error => {
+                    console.error(error);
+                    document.getElementById('result').innerHTML = `<p class="error">Не удалось загрузить товар: ${error.message}</p>`;
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise.all – параллельное выполнение</title>
+    <style>
+        button { font-size: 18px; padding: 10px; }
+        pre { background: #f4f4f4; padding: 10px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Задание 2 (вариант 3): параллельное выполнение трёх промисов</h2>
+    <button id="run">Запустить три операции параллельно</button>
+    <pre id="output">Нажмите кнопку</pre>
+
+    <script>
+        // Три асинхронные операции (разная длительность)
+        function operation1() {
+            return new Promise(resolve => {
+                setTimeout(() => resolve("✅ Товар 1 загружен"), 1000);
+            });
+        }
+        function operation2() {
+            return new Promise(resolve => {
+                setTimeout(() => resolve("✅ Товар 2 загружен"), 1500);
+            });
+        }
+        function operation3() {
+            return new Promise(resolve => {
+                setTimeout(() => resolve("✅ Товар 3 загружен"), 800);
+            });
+        }
+
+        document.getElementById('run').onclick = () => {
+            const output = document.getElementById('output');
+            output.textContent = "Запуск...\n";
+            const start = Date.now();
+
+            Promise.all([operation1(), operation2(), operation3()])
+                .then(results => {
+                    const elapsed = Date.now() - start;
+                    output.textContent += `✅ Все операции завершены за ${elapsed} мс\n`;
+                    output.textContent += results.join('\n');
+                })
+                .catch(err => {
+                    output.textContent += `❌ Ошибка: ${err}`;
+                });
+        };
+    </script>
+</body>
+</html>
