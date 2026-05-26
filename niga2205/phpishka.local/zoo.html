@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Зоопарк - поиск зверушки</title>
+    <style>
+        body { font-family: Arial; margin: 50px; }
+        form { margin-bottom: 20px; }
+        input, button { padding: 8px; font-size: 16px; }
+        .result { margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
+        .found { background-color: #d4edda; color: #155724; }
+        .not-found { background-color: #f8d7da; color: #721c24; }
+        .back-link { margin-top: 20px; display: inline-block; }
+    </style>
+</head>
+<body>
+    <h2>Поиск зверушки в зоопарке</h2>
+    <form action="zoo.php" method="GET">
+        <label>Введите название зверушки:</label>
+        <input type="text" name="animal" required placeholder="например: медведь">
+        <button type="submit">Найти</button>
+    </form>
+</body>
+</html>
